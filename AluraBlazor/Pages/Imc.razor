@@ -1,0 +1,21 @@
+@page "/imc"
+
+<h1>Calc IMC</h1>
+
+<label for="altura">Altura (em metros)</label>
+<input @bind="Altura" id="altura" type="number">
+
+<label for="peso">Peso (em quilogramas)</label>
+<input @bind="Peso" id="peso" type="number">
+
+<button @onclick="CalculoImc" type="button" class="btn btn-primary">Calcular IMC</button>
+<label>O IMC é <span>@ImcCalculado</span></label>
+
+@code {
+    private double Altura {get; set;}
+    private double Peso {get; set;}
+    private double ImcCalculado {get; set;}
+    private void CalculoImc(){
+        ImcCalculado = Peso / Math.Pow(Altura, 2);
+    }
+}
